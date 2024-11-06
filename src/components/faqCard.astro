@@ -1,0 +1,73 @@
+---
+
+// const {title, info} = n
+---
+
+<!-- Faq Card  -->
+
+
+
+<li class="cs-faq-item">
+  <button class="cs-button">
+    <span class="cs-button-text"> What is your plan cancellation policy? </span>
+  </button>
+  <p class="cs-item-p">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit convallis nunc
+    neque, bibendum pulvinar vitae commodo velit. Proin diam tortor sed
+    malesuada nunc, habitant. Dignissim ipsum porta enim, magna urna, quam.
+  </p>
+</li>
+
+
+<style lang="less">
+.cs-faq-item {
+        list-style: none;
+        width: 100%;
+        background-color: #303044;
+        border-radius: (8/16rem);
+        padding: 0;
+        box-sizing: border-box;
+        transition: border-bottom 0.3s;
+
+        &.active {
+          .cs-button {
+            color: var(--primary);
+            &:before {
+              background-color: var(--primary);
+              transform: rotate(315deg);
+            }
+            &:after {
+              background-color: var(--primary);
+              transform: rotate(-315deg);
+            }
+          }
+
+          .cs-item-p {
+            height: auto;
+            margin-top: (12/16rem);
+            /* 16px - 24px */
+            padding-top: (12/16rem);
+            padding-bottom: (24/16rem);
+            color: var(--bodyTextColorWhite);
+            opacity: 0.8;
+
+            &:before {
+              /* border top */
+              content: "";
+              height: 1px;
+              background: #7d799c;
+              opacity: 1;
+              position: absolute;
+              display: block;
+              top: 0;
+              left: (24/16rem);
+              right: (24/16rem);
+            }
+          }
+        }
+      }
+
+
+
+
+</style>

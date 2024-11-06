@@ -1,14 +1,14 @@
 {
-	"name": "Code Stitch Web Designs",
-	"email": "help@codestitch.app",
-	"phoneForTel": "555-779-4407",
-	"phoneFormatted": "(555) 779-4407",
+	"name": "Nyeri Web Designs",
+	"email": "info.nwd@gmail.com",
+	"phoneForTel": "0759120891",
+	"phoneFormatted": "+254746938311",
 	"address": {
 		"lineOne": "First Address Line",
 		"lineTwo": "Second Address Line",
-		"city": "Denver",
-		"state": "CO",
-		"zip": "80206",
+		"city": "Nyeri",
+		"state": "KE",
+		"zip": "00100",
 		"mapLink": "https://goo.gl/maps/UAQn4vuGDiwv7DV39"
 	},
 	"domain": "www.codestitch.app"

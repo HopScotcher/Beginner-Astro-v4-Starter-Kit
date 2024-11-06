@@ -4,15 +4,19 @@
     "url": "/"
   },
   {
-    "key": "About Us",
+    "key": "Services",
+    "url": "/services/"
+  },
+  {
+    "key": "FAQs",
+    "url": "/faqs/"
+  },
+  {
+    "key": "About",
     "url": "/about/"
   },
   {
-    "key": "Projects",
-    "url": "/projects/"
-  },
-  {
-    "key": "Reviews",
-    "url": "/reviews/"
+    "key": "Get In Touch",
+    "url": "/contact/"
   }
 ]

@@ -1,0 +1,178 @@
+---
+import BaseLayout from "..//layouts/BaseLayout.astro";
+import CTA from "../components/CTA.astro";
+import Landing from "../components/Landing.astro";
+
+// Optimize our landing image and pass it as props to the BaseLayout (for preloading) and Landing (for rendering)
+import { getOptimizedImage } from "../js/utils";
+import  landingImage from "../assets/images/mountain-banner.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+const optimizedImage = await getOptimizedImage(landingImage);
+---
+
+<BaseLayout
+  title="About"
+  description="Meta description for the page"
+  preloadedImage={optimizedImage}
+>
+  <!-- ============================================ -->
+  <!--                    LANDING                   -->
+  <!-- ============================================ -->
+
+  <Landing title="Services" image={optimizedImage} />
+
+  <!-- ============================================ -->
+  <!--                  Reviews                     -->
+  <!-- ============================================ -->
+
+  <section id="services-details">
+    <div class="service-container">
+      <picture class="cs-icon">
+        <img src="/assets/svgs/computer.svg" alt="" />
+      </picture>
+
+      <div>
+        <h2>Website Design</h2>
+        <p>
+          Your website should not only look good, but also be functional. We
+          prioritize making websites that are results-driven. Here's what to expect when working with us:
+          <ul>
+            <li>
+              <b>Custom Web Design</b> - Every website is uniquely crafted for your
+              brand. No cookie-cutter templates.
+            </li>
+            <li>
+              <b>Hand-Coded (No WordPress)</b> - We build your site from scratch
+              to be faster, more secure, and tailored to your needs.
+            </li>
+            <li>
+              <b>Fast Delivery</b> - We know time is money, so we work efficiently
+              to get your site launched quickly.
+            </li>
+            <li>
+              <b>Optimized for Speed</b> - Your website will load quickly and smoothly,
+              with high page speed scores to keep visitors engaged.
+            </li>
+          </ul>
+        </p>
+        <a href="/contact">Learn More</a>
+      </div>
+    </div>
+
+    <div class="service-container">
+      <picture class="cs-icon">
+        <img src="/assets/svgs/bar-chart.svg" alt="" />
+      </picture>
+
+      <div>
+        <h2>Search Engine Optimization</h2>
+        <p>
+          Want more people to find your business online? That’s where SEO
+          (Search Engine Optimization) comes in. <br/> We make it easy for search
+          engines like Google to recognize and rank your site, which boosts your
+          visibility. With better rankings, more customers will discover your
+          business, helping you grow your online presence and reach new
+          audiences.
+        </p>
+        <a href="/contact">Learn More</a>
+      </div>
+    </div>
+
+    <div class="service-container">
+      <picture class="cs-icon">
+        <img src="/assets/svgs/maintenance.svg" alt="" />
+      </picture>
+
+      <div>
+        <h2>Website Maintenance</h2>
+        <p>
+          We’re here to take care of your website even after it’s launched. Our
+          maintenance service includes ongoing support and edits to keep your
+          site running smoothly. <br/> And if any issues come up, don’t worry—we’re
+          available 24/7 to handle any emergencies. With us, your website is
+          always in good hands!
+        </p>
+        <a href="/contact">Learn More</a>
+      </div>
+    </div>
+  </section>
+  <CTA />
+</BaseLayout>
+
+<style lang="less">
+  /* PAGE-SPECIFIC STYLES FOR THE REVIEWS PAGE */
+
+  /*-- -------------------------- -->
+<---           Reviews          -->
+<--- -------------------------- -*/
+
+  /* Mobile */
+  @media only screen and (min-width: 0em) {
+    #services-details {
+      padding: var(--sectionPadding);
+   
+      background-color: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .service-container {
+     
+        padding: 2.54rem 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-bottom: 1rem;
+       
+
+        box-shadow: 0 4px 12px rgba(128, 128, 128, 0.408);
+        transition:  box-shadow .2s;
+
+        &:hover{
+          box-shadow:  0 4px 5px rgba(128, 128, 128, 0.408);
+        }
+      }
+      picture img {
+        width: (70/16rem);
+   
+      }
+      div {
+        background-color: white;
+        h2{
+          margin-bottom: .5rem;
+        }
+        a {
+          color: var(--primary);
+          display: block;
+          margin-top: 1rem;
+          text-decoration: none;
+           
+        }
+
+      }
+      ul{
+        
+        padding-left: 1rem;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+       
+      }
+      li{
+          margin-bottom: .5rem;
+        }
+    }
+  }
+
+  /* Tablet */
+  @media only screen and (min-width: 48em) {
+    #services-details {
+      .service-container {
+        flex-direction: row;
+        max-width: 70vw;
+        gap: 2rem;
+        padding: 2.5rem 2.5rem;
+      }
+    }
+  }
+</style>

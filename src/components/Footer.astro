@@ -1,339 +1,303 @@
 ---
-import client from "../data/client.json";
+import navData from "../data/navData.json";
 ---
 
-<!-- ============================================ --><!--                   Footer                     --><!-- ============================================ -->
-<footer id="footer">
-  <div class="container">
-    <div class="left-section">
-      <a class="logo" href="/"
-        ><img
+<!-- ============================================ --><!--                  Footer                      --><!-- ============================================ -->
+<footer id="footer-1147">
+  <div class="cs-container">
+    <div class="cs-top">
+      <a aria-label="go back to home" class="cs-logo" href="/">
+        <img
+          class="cs-logo-img"
           loading="lazy"
           decoding="async"
-          src="/assets/svgs/logo-white.svg"
+          src="/assets/svgs/nwd-logo-2.svg"
           alt="logo"
-          width="264"
-          height="78"
-        /></a
-      >
-      <p>
-        Extra content if you need it, if not you can delete this whole p tag. I
-        usually do.
-      </p>
+          width="168"
+          height="48"
+        />
+        <p class="slogan">We make your website work for you.</p>
+      </a>
+      <ul class="cs-ul">
+        {
+          navData.map((entry) => (
+            <li class="cs-li">
+              <a
+                href={entry.url}
+                class:list={[
+                  "cs-link",
+                  { "cs-active": Astro.url.pathname === entry.url },
+                ]}
+              >
+                {entry.key}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
-    <div class="right-section">
-      <div class="lists">
-        <ul>
-          <li>
-            <h2>Information</h2>
-          </li>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/about">About Us</a>
-          </li>
-          <li>
-            <a href="/projects">Projects</a>
-          </li>
-          <li>
-            <a href="/reviews">Reviews</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <h2>Services</h2>
-          </li>
-          <li>Service1</li>
-          <li>Service2</li>
-          <li>Service4</li>
-          <li>Service5</li>
-        </ul>
-        <ul>
-          <li>
-            <h2>Contact</h2>
-          </li>
-          <li>
-            <a href="/contact">
-              {client.address.lineOne}<br />
-              {client.address.lineTwo}<br />
-              {client.address.city}
-              {client.address.state}
-              {client.address.zip}
-            </a>
-          </li>
-          <li>
-            <a href={`tel:${client.phoneForTel}`}>
-              T:
-              {client.phoneFormatted}
-            </a>
-          </li>
-          <li>
-            <a href={`mailto:${client.email}`}>Click to Email</a>
-          </li>
-        </ul>
-      </div>
+    <div class="cs-bottom">
+      <!--Social-->
+      <!-- <ul class="cs-social">
+        <li class="cs-social-li">
+          <a
+            href=""
+            class="cs-social-link"
+            aria-label="instagram"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              class="cs-social-icon cs-default"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/instagram-transparent.svg"
+              alt="icon"
+              loading="lazy"
+              decoding="async"
+              width="12"
+              height="12"
+              aria-hidden="true"
+            />
+          </a>
+        </li>
+        <li class="cs-social-li">
+          <a
+            href=""
+            class="cs-social-link"
+            aria-label="twitter"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              class="cs-social-icon cs-default"
+              src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/youtube-transparent2.svg"
+              alt="icon"
+              loading="lazy"
+              decoding="async"
+              width="12"
+              height="12"
+              aria-hidden="true"
+            />
+          </a>
+        </li>
+      </ul> -->
+      <span class="cs-copyright">
+        © Copyright 2024 - <span class="cs-copyright-link"
+          >Nyeri Web Designs</
+        >
+      </span>
     </div>
-  </div>
-
-  <div class="credit">
-    <span>Designed and Hand Coded by</span>
-    <a href="/" target="_blank" rel="noopener">Your Company Name</a>
-    <span class="copyright"> Copyright 2023 - Present</span>
   </div>
 </footer>
 
 <style lang="less">
-  /* Mobile */
-@media only screen and (min-width: 0em) {
-  #footer {
-    font-size: ~"min(4vw, 1.2em)";
-    padding: (84/16rem) 0 (20/16rem);
-    background: #1c1c1c;
+  /*-- -------------------------- -->
+<---          Footer            -->
+<--- -------------------------- -*/
 
-    .left-section {
-      text-align: center;
-      margin: auto;
-      margin-bottom: (50/16rem);
-      .logo {
-        text-align: center;
-        width: auto;
-        height: (32/16em);
-        margin: auto;
-        margin-bottom: (30/16em);
-        display: inline-block;
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #footer-1147 {
+      padding: var(--sectionPadding);
+      position: relative;
+      z-index: 1;
+      background-color: var(--secondaryLight1);
 
-        img {
-          width: auto;
-          height: 100%;
-          display: block;
-        }
-      }
-
-      p {
-        font-size: (14/16rem);
-        line-height: 27/14;
-        text-align: center;
+      .cs-container {
         width: 100%;
-        width: 307/14rem;
-        margin: auto;
-        color: #fff;
-        opacity: 0.9;
-      }
-    }
-
-    .right-section {
-      width: 96%;
-      max-width: (407/16rem);
-      margin: auto;
-      .lists {
-        width: 96%;
-        max-width: (307/16rem);
+        max-width: (1280/16rem);
         margin: auto;
         display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        ul {
-          margin-top: 0;
-          margin-bottom: 0;
-          padding: 0;
-
-          &:nth-of-type(3) {
-            margin-top: (50/16rem);
-            li {
-              margin-bottom: (16/16rem);
-              display: flex;
-              justify-content: flex-start;
-              align-items: center;
-
-              &:last-of-type {
-                margin-bottom: 0;
-              }
-            }
-          }
-
-          li {
-            font-size: (18/16rem);
-            list-style: none;
-            margin-bottom: (12/16rem);
-            color: #fff;
-            opacity: 0.9;
-
-            a {
-              line-height: 21/18em;
-              text-decoration: none;
-              color: #fff;
-              transition: color 0.3s;
-              &:hover {
-                color: var(--primary);
-              }
-            }
-          }
-          h2 {
-            font-size: (18/16rem);
-            font-weight: bold;
-            line-height: 21/18em;
-            text-transform: uppercase;
-            margin-bottom: (37/16rem);
-            color: #fff;
-            position: relative;
-
-            &:before {
-              content: "";
-              width: (97/16rem);
-              height: (2/16rem);
-              background: var(--primary);
-              opacity: 1;
-              display: block;
-              position: absolute;
-              bottom: (-16/16rem);
-              left: 0;
-            }
-          }
-        }
+        flex-direction: column;
+        align-items: center;
       }
 
-      .buttons {
+      .cs-top {
+        width: 100%;
+        /* 32px - 40px */
+        margin-bottom: clamp(2rem, 4vw, 2.5rem);
+        padding-bottom: clamp(2rem, 4vw, 2.5rem);
+        border-bottom: 1px solid #484848;
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+        gap: (32/16rem);
       }
 
-      .cs-button-solid {
-        width: (250/16rem);
-        height: (53/16rem);
+      .cs-ul {
         margin: 0;
-        padding-top: (3/16rem);
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        row-gap: (8/16rem);
+        /* 28px - 40px */
+        column-gap: clamp(1.75rem, 4vw, 2.5rem);
       }
-    }
 
-    .credit {
-      font-size: (16/16rem);
-      line-height: (36/16rem);
-      text-align: center;
-      width: 96%;
-      margin: auto;
-      margin-top: (100/16rem);
-      color: #fff;
+      .cs-li {
+        list-style: none;
+      }
 
-      a {
-        font-size: (16/16rem);
+      .cs-link {
+        /* 14px - 16px */
+        font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+        line-height: 1.5em;
         text-decoration: none;
-        color: var(--primary);
+        margin: 0;
+        color: #f7f7f7;
+        display: block;
+        transition: color 0.3s;
 
         &:hover {
-          text-decoration: underline;
+          color: var(--primary);
         }
       }
 
-      .copyright {
-        font-size: (16/16rem);
+      .cs-logo {
+        width: (168/16rem);
+        height: auto;
+        display: block;
+        text-decoration: none;
+        // border: 1px solid red;
+        .slogan{
+          color: #bababa;
+          margin-top: 1rem;
+          text-align: center;
+        }
+      }
+
+      .cs-logo-img {
+        width: 100%;
+        height: auto;
         display: block;
       }
-    }
-  }
-}
 
-/* Small Desktop */
-@media only screen and (min-width: 64em) {
-  #footer {
-    font-size: ~"min(1.2vw, 1em)";
-    .container {
-      width: 96%;
-      max-width: (1320/16rem);
-      margin: auto;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-    }
 
-    .left-section {
-      text-align: left;
-      width: (409/16rem);
-      margin: 0;
 
-      .logo {
-        text-align: left;
-        height: (40/16rem);
-        margin-left: 0;
+      .cs-bottom {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: (24/16rem);
       }
 
-      p {
-        text-align: left;
-        margin-left: 0;
-      }
-    }
+      // .cs-social {
+      //   margin: 0;
+      //   padding: 0;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   gap: (8/16rem);
+      // }
+// .cs-social-li {
+      //   list-style: none;
+      // }
+      // 
 
-    .right-section {
-      width: (609/16rem);
-      max-width: none;
-      margin: 0;
-      .lists {
-        width: 96%;
-        max-width: (769/16rem);
-        max-width: initial;
+      // .cs-social-link {
+      //   width: (32/16rem);
+      //   height: (32/16rem);
+      //   background-color: #484848;
+      //   border-radius: 50%;
+      //   display: flex;
+      //   justify-content: center;
+      //   align-items: center;
+      //   transition: background-color 0.3s;
+      //   &:hover {
+      //     background-color: var(--primary);
+
+      //     .cs-social-icon {
+      //       filter: grayscale(1) brightness(0);
+      //       opacity: 1;
+      //     }
+      //   }
+      // }
+
+      // .cs-social-icon {
+      //   width: (12/16rem);
+      //   height: auto;
+      //   display: block;
+      //   opacity: 0.5;
+      // }
+
+      .cs-copyright {
+        font-size: (16/16rem);
+        line-height: 1.5em;
         margin: 0;
+        color: #bababa;
+        display: block;
+      }
 
-        ul {
-          &:nth-of-type(3) {
-            margin-top: 0;
+      .cs-copyright-link {
+        font-size: inherit;
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s;
 
-            li:first-of-type {
-              margin-bottom: 0;
-            }
-          }
-
-          li {
-            a {
-              position: relative;
-
-              &:before {
-                content: "";
-                width: 0%;
-                height: (2/16rem);
-                background: var(--primary);
-                opacity: 1;
-                display: block;
-                position: absolute;
-                bottom: (-3/16rem);
-                left: 0;
-                transition: width 0.3s;
-              }
-
-              &:hover {
-                &:before {
-                  width: 100%;
-                }
-              }
-            }
-          }
+        &:hover {
+          color: var(--primary);
         }
       }
 
-      .buttons {
-        justify-content: flex-start;
-      }
-    }
+      .cs-background {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
 
-    .credit {
-      .copyright {
-        display: inline-block;
+        &:before {
+          /* background color overlay */
+          content: "";
+          position: absolute;
+          display: block;
+          height: 100%;
+          width: 100%;
+          background: #1a1a1a;
+          opacity: 0.96;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          /* Makes img tag act as a background image */
+          object-fit: cover;
+        }
       }
     }
   }
-}
 
-/* Dark Mode */
-@media only screen and (min-width: 0em) {
-  body.dark-mode {
-    #footer {
-      background: #061623;
-    }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #footer-1147 {
+      .cs-top {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .cs-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    
+  .slogan{
+    text-align: left;
   }
-}
 
+      
+    }
+
+    
+  }
 </style>
